@@ -358,6 +358,57 @@ a:hover { color: var(--blue-900); }
 .cover-vol1:hover { transform: rotate(-0.5deg) translateY(-6px); }
 .cover-vol2:hover { transform: translateY(22px) rotate(0.5deg); }
 
+/* ---------- Topics strip (keyword-dense, scannable) ---------- */
+
+.topics-strip {
+  padding: 36px 0 40px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.topics-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 18px;
+  text-align: center;
+}
+.topics-cloud {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.topic-pill {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.topic-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.t-blue   { background: var(--blue-50);   color: var(--blue-900);   border-color: var(--blue-200); }
+.t-amber  { background: var(--amber-50);  color: var(--amber-900);  border-color: var(--amber-200); }
+.t-green  { background: var(--green-50);  color: var(--green-900);  border-color: var(--green-200); }
+.t-purple { background: var(--purple-50); color: var(--purple-900); border-color: var(--purple-200); }
+
+@media (max-width: 640px) {
+  .topics-strip { padding: 28px 0 32px; }
+  .topic-pill { font-size: 12.5px; padding: 6px 12px; }
+}
+
 /* ---------- Section title ---------- */
 
 .section-title {
@@ -876,6 +927,9 @@ a:hover { color: var(--blue-900); }
   padding: 2px;
   background: linear-gradient(135deg, var(--amber-500), var(--blue-500), var(--green-500), var(--purple-500));
   -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+          mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;

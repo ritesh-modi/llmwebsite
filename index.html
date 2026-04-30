@@ -8,7 +8,8 @@
   <meta name="color-scheme" content="light">
 
   <title>Inside Large Language Models | The First Book on LLMs</title>
-  <meta name="description" content="Two volumes by Ritesh Modi. The first-principles book on LLMs: attention, transformers, fine-tuning, LoRA, and inference for engineers shipping with the API.">
+  <meta name="description" content="The first-principles book on LLMs and AI agents. Transformers, attention, fine-tuning, LoRA, QLoRA, RLHF, function calling. Two volumes by Ritesh Modi.">
+  <meta name="keywords" content="LLM, large language models, AI agents, agentic AI, transformers, attention mechanism, fine-tuning, LoRA, QLoRA, RLHF, function calling, build LLM from scratch, GPT from scratch, LLM book, transformer book, prompt engineering, KV cache, inference optimization, PyTorch, LLM engineering">
 
   <meta name="author" content="Ritesh Modi">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -21,7 +22,7 @@
   <meta property="og:site_name" content="Inside Large Language Models">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Inside Large Language Models | The First Book on LLMs">
-  <meta property="og:description" content="Why does pasting the same prompt twice work? Why does GPT-4 fail on 'how many Rs in strawberry'? Why does LoRA fine-tune a 70B model on one GPU? Two volumes that turn API users into engineers who understand the system underneath.">
+  <meta property="og:description" content="Why does pasting the same prompt twice work? Why does GPT-4 fail on 'how many Rs in strawberry'? Why does LoRA fine-tune a 70B model on one GPU? Two volumes on LLMs, transformers, fine-tuning, RLHF, and the function calling behind AI agents.">
   <meta property="og:url" content="https://thefirstbookonllm.com/">
   <meta property="og:image" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
   <meta property="og:image:secure_url" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
@@ -102,7 +103,8 @@
         "bookFormat": "https://schema.org/EBook",
         "numberOfPages": 400,
         "description": "First-principles walkthrough of LLM foundations and the complete transformer. Tokenization, embeddings, positional encoding, single-head and multi-head attention, residuals, layer norm, the feed-forward network, the LM head, and a complete GPT built from scratch in PyTorch.",
-        "about": ["Large Language Models", "Transformers", "Attention Mechanism", "Tokenization", "Embeddings", "PyTorch", "GPT", "Deep Learning"],
+        "keywords": "LLM, large language models, transformers, transformer architecture, attention mechanism, self-attention, multi-head attention, tokenization, BPE, byte-pair encoding, embeddings, positional encoding, layer normalization, residual connections, feed-forward network, build LLM from scratch, build GPT from scratch, GPT, decoder-only models, PyTorch, deep learning, neural networks, LLM book, transformer book",
+        "about": ["Large Language Models", "LLMs", "Transformers", "Transformer Architecture", "Attention Mechanism", "Self-Attention", "Multi-Head Attention", "Tokenization", "Byte-Pair Encoding", "Embeddings", "Positional Encoding", "Layer Normalization", "Residual Connections", "Feed-Forward Network", "PyTorch", "GPT", "Decoder-Only Models", "Build LLM from Scratch", "Build GPT from Scratch", "Deep Learning", "Neural Networks"],
         "audience": {
           "@type": "Audience",
           "audienceType": "Software engineers shipping with LLM APIs"
@@ -135,8 +137,9 @@
         "inLanguage": "en",
         "bookFormat": "https://schema.org/EBook",
         "numberOfPages": 400,
-        "description": "Production LLMs end to end. Inference internals, KV cache, prefix caching, quantization, batching, RLHF, instruction tuning, full fine-tuning, LoRA, QLoRA, and four applied projects: contract classification, legal-document QLoRA, text-to-SQL, and function calling.",
-        "about": ["LLM Fine-Tuning", "LoRA", "QLoRA", "RLHF", "Instruction Tuning", "Inference Optimization", "KV Cache", "Quantization", "Function Calling"],
+        "description": "Production LLMs and the foundation of AI agents. Inference internals, KV cache, prefix caching, quantization, batching, RLHF, instruction tuning, full fine-tuning, LoRA, QLoRA, and four applied projects including function calling that powers AI agents and agentic AI workflows.",
+        "keywords": "LLM fine-tuning, fine-tuning large language models, LoRA, QLoRA, PEFT, parameter-efficient fine-tuning, RLHF, reinforcement learning from human feedback, instruction tuning, inference optimization, KV cache, prefix caching, quantization, batching, function calling, tool use, AI agents, agentic AI, LLM agents, multi-agent systems, text-to-SQL, document classification, production LLMs, LLM engineering, LLM in production, prompt engineering",
+        "about": ["LLM Fine-Tuning", "Fine-Tuning Large Language Models", "LoRA", "QLoRA", "PEFT", "Parameter-Efficient Fine-Tuning", "RLHF", "Instruction Tuning", "Inference Optimization", "KV Cache", "Prefix Caching", "Quantization", "Batching", "Function Calling", "Tool Use", "AI Agents", "Agentic AI", "LLM Agents", "Text-to-SQL", "Document Classification", "Production LLMs", "LLM Engineering", "Prompt Engineering"],
         "audience": {
           "@type": "Audience",
           "audienceType": "Engineers shipping fine-tuned LLMs into production"
@@ -207,6 +210,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Chapter 9 of Volume I is exactly this exercise. By the end you will have written every component of a GPT in PyTorch and trained it on real text. Every line is annotated. Every tensor shape is shown."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this book cover AI agents and agentic AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chapter 17 of Volume II covers function calling end to end: the LLM-side capability that AI agents and agentic AI workflows depend on. Tool use, structured output, the model-side mechanics that let an LLM decide which function to call and what arguments to pass. The book does not cover specific agent frameworks like LangChain, AutoGPT, or CrewAI. It teaches the LLM-side foundation that every agent framework builds on. Once you understand function calling at the level this book teaches, every agent framework becomes a thin wrapper around what you already know."
             }
           },
           {
@@ -284,6 +295,38 @@
              alt="Inside Large Language Models, Volume II: Inference, Optimization, and Fine-Tuning"
              width="2400" height="3000" loading="lazy">
       </div>
+    </div>
+  </section>
+
+  <section class="topics-strip" aria-label="Topics covered in the book">
+    <div class="container">
+      <p class="topics-label">What you will learn across both volumes</p>
+      <ul class="topics-cloud">
+        <li class="topic-pill t-blue">Large Language Models</li>
+        <li class="topic-pill t-purple">Transformer Architecture</li>
+        <li class="topic-pill t-amber">Attention Mechanism</li>
+        <li class="topic-pill t-green">Multi-Head Attention</li>
+        <li class="topic-pill t-blue">Tokenization &amp; BPE</li>
+        <li class="topic-pill t-amber">Embeddings</li>
+        <li class="topic-pill t-green">Positional Encoding</li>
+        <li class="topic-pill t-purple">Build a GPT from Scratch</li>
+        <li class="topic-pill t-blue">PyTorch</li>
+        <li class="topic-pill t-amber">LLM Fine-Tuning</li>
+        <li class="topic-pill t-green">LoRA &amp; QLoRA</li>
+        <li class="topic-pill t-purple">RLHF</li>
+        <li class="topic-pill t-blue">Instruction Tuning</li>
+        <li class="topic-pill t-amber">KV Cache</li>
+        <li class="topic-pill t-green">Inference Optimization</li>
+        <li class="topic-pill t-purple">Quantization</li>
+        <li class="topic-pill t-blue">Prompt Engineering</li>
+        <li class="topic-pill t-amber">Function Calling</li>
+        <li class="topic-pill t-green">AI Agents</li>
+        <li class="topic-pill t-purple">Agentic AI</li>
+        <li class="topic-pill t-blue">Tool Use</li>
+        <li class="topic-pill t-amber">Text-to-SQL</li>
+        <li class="topic-pill t-green">Document Classification</li>
+        <li class="topic-pill t-purple">Production LLMs</li>
+      </ul>
     </div>
   </section>
 
@@ -384,8 +427,8 @@
           <ul class="volume-topics">
             <li>Inference internals, KV cache, prefix caching, quantization, batching</li>
             <li>RLHF, instruction tuning, full fine-tuning vs LoRA vs QLoRA</li>
-            <li>Four applied projects: classification, legal QLoRA, text-to-SQL, function calling</li>
-            <li>Putting it all into production</li>
+            <li>Four applied projects: contract classification, legal-document QLoRA, text-to-SQL, and function calling</li>
+            <li>The function-calling foundation that powers AI agents and agentic AI workflows</li>
           </ul>
           <div class="volume-buy">
             <a class="btn btn-primary" href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GXGC8YDK/" target="_blank" rel="noopener">Buy on Amazon</a>
@@ -507,6 +550,10 @@
         </div>
         <div class="outcome">
           <span class="outcome-num">07</span>
+          <p>Build the function-calling foundation that AI agents and agentic AI workflows depend on.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">08</span>
           <p>Predict when a prompt trick will fail. Predict why a fine-tune will work. Stop guessing.</p>
         </div>
       </div>
@@ -580,6 +627,11 @@
         <details class="faq-item">
           <summary><span class="faq-q">Will I be able to build a GPT from scratch after reading?</span></summary>
           <p>Chapter 9 of Volume I is exactly this exercise. By the end you will have written every component of a GPT in PyTorch and trained it on real text. Every line is annotated. Every tensor shape is shown.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">Does this book cover AI agents and agentic AI?</span></summary>
+          <p>Chapter 17 of Volume II covers function calling end to end: the LLM-side capability that AI agents and agentic AI workflows depend on. Tool use, structured output, the model-side mechanics that let an LLM decide which function to call and what arguments to pass. The book does not cover specific agent frameworks like LangChain, AutoGPT, or CrewAI. It teaches the LLM-side foundation that every agent framework builds on. Once you understand function calling at the level this book teaches, every agent framework becomes a thin wrapper around what you already know.</p>
         </details>
 
         <details class="faq-item">

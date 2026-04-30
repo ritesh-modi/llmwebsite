@@ -58,6 +58,36 @@
 
 html { scroll-behavior: smooth; }
 
+/* Visible-on-focus skip link for keyboard and screen-reader users. */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 12px;
+  background: var(--blue-900);
+  color: #fff !important;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 1000;
+  transition: top .15s ease;
+}
+.skip-link:focus { top: 12px; outline: 3px solid var(--amber-500); outline-offset: 2px; }
+
+/* Consistent visible focus across interactive elements. */
+:focus-visible {
+  outline: 3px solid var(--amber-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.btn:focus-visible { outline-offset: 4px; }
+
+/* Respect reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -107,18 +137,17 @@ a:hover { color: var(--blue-900); }
   letter-spacing: -0.01em;
 }
 .brand-mark {
-  display: inline-grid;
-  place-items: center;
+  display: inline-flex;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
-  background: var(--blue-900);
-  color: var(--amber-500);
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: 0.05em;
+  flex-shrink: 0;
 }
-.brand-mark span { color: var(--green-500); }
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 10px;
+}
 .brand-text { font-size: 15px; color: var(--ink-soft); }
 
 .topnav {
@@ -743,6 +772,82 @@ a:hover { color: var(--blue-900); }
 }
 .author-text:last-of-type { margin-bottom: 22px; }
 .author-cta { margin: 0; }
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  padding: 100px 0;
+  background: var(--bg);
+  border-top: 1px solid var(--hairline);
+}
+.faq-list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.faq-item[open] {
+  border-color: var(--blue-200);
+  box-shadow: var(--shadow-md);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  color: var(--blue-900);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 18px;
+  transition: transform .2s ease, background .2s ease;
+}
+.faq-item[open] summary::after {
+  content: "−";
+  background: var(--blue-900);
+  color: #fff;
+  transform: rotate(180deg);
+}
+.faq-item summary:hover { color: var(--blue-900); }
+.faq-q {
+  flex: 1;
+  letter-spacing: -0.005em;
+}
+.faq-item p {
+  margin: 0;
+  padding: 0 26px 24px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 70ch;
+}
+.faq-item p a { font-weight: 600; color: var(--blue-700); }
+.faq-item p a:hover { color: var(--blue-900); text-decoration: underline; }
 
 /* ---------- Buy ---------- */
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bump <lastmod> below on every meaningful content change so Googlebot re-crawls promptly. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://thefirstbookonllm.com/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg</image:loc>
+      <image:title>Inside Large Language Models, Volume I cover</image:title>
+      <image:caption>Foundations and the Complete Transformer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://thefirstbookonllm.com/Inside-LLMs-Vol2-Cover-2400x3000.jpg</image:loc>
+      <image:title>Inside Large Language Models, Volume II cover</image:title>
+      <image:caption>Inference, Optimization and Fine-Tuning</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://thefirstbookonllm.com/ritesh.jpeg</image:loc>
+      <image:title>Ritesh Modi, author of Inside Large Language Models</image:title>
+    </image:image>
+  </url>
+</urlset>

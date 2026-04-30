@@ -1,0 +1,22 @@
+{
+  "name": "Inside Large Language Models",
+  "short_name": "Inside LLMs",
+  "description": "The first-principles book on LLMs by Ritesh Modi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0C447C",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["books", "education", "technology"],
+  "icons": [
+    {
+      "src": "Inside-LLMs-Vol1-Cover-2400x3000.jpg",
+      "sizes": "2400x3000",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

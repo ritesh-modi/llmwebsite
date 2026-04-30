@@ -2,15 +2,28 @@
   "$schema": "https://json.schemastore.org/staticwebapp.config.json",
   "trailingSlash": "auto",
   "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/diagrams/*", "/*.{css,js,png,jpg,jpeg,svg,webp,ico}"]
+    "rewrite": "/404.html",
+    "exclude": [
+      "/diagrams/*",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/site.webmanifest",
+      "/favicon.ico",
+      "/favicon.svg",
+      "/favicon-16x16.png",
+      "/favicon-32x32.png",
+      "/apple-touch-icon.png",
+      "/*.{css,js,png,jpg,jpeg,svg,webp,ico,gif,avif,txt,xml,json,webmanifest}"
+    ]
   },
   "globalHeaders": {
-    "Cache-Control": "public, max-age=600",
+    "Cache-Control": "public, max-age=600, must-revalidate",
     "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
     "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
     "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
   },
   "routes": [
     {
@@ -24,16 +37,59 @@
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
+    },
+    {
+      "route": "/Inside-LLMs-Vol1-Cover-2400x3000.jpg",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "route": "/Inside-LLMs-Vol2-Cover-2400x3000.jpg",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "route": "/ritesh.jpeg",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "route": "/robots.txt",
+      "headers": {
+        "Cache-Control": "public, max-age=86400",
+        "Content-Type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "route": "/sitemap.xml",
+      "headers": {
+        "Cache-Control": "public, max-age=86400",
+        "Content-Type": "application/xml; charset=utf-8"
+      }
+    },
+    {
+      "route": "/site.webmanifest",
+      "headers": {
+        "Content-Type": "application/manifest+json; charset=utf-8",
+        "Cache-Control": "public, max-age=86400"
+      }
     }
   ],
   "mimeTypes": {
     ".svg": "image/svg+xml",
-    ".webmanifest": "application/manifest+json"
+    ".webmanifest": "application/manifest+json",
+    ".webp": "image/webp",
+    ".avif": "image/avif",
+    ".jpeg": "image/jpeg",
+    ".jpg": "image/jpeg"
   },
   "responseOverrides": {
     "404": {
-      "rewrite": "/index.html",
-      "statusCode": 200
+      "rewrite": "/404.html",
+      "statusCode": 404
     }
   }
 }

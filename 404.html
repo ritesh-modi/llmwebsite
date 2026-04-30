@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0C447C">
+  <meta name="robots" content="noindex, follow">
+  <title>Page not found | Inside Large Language Models</title>
+  <link rel="canonical" href="https://thefirstbookonllm.com/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-900: #0C447C;
+      --amber-500: #EF9F27;
+      --amber-700: #B5751A;
+      --green-500: #1D9E75;
+      --ink: #1A1A1A;
+      --muted: #6B7280;
+      --bg-soft: #FAF9F6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(800px 400px at 20% 10%, #FAEEDA, transparent 60%),
+        radial-gradient(800px 400px at 80% 90%, #EEEDFE, transparent 60%),
+        var(--bg-soft);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .wrap { max-width: 560px; }
+    .code {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(80px, 16vw, 140px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--blue-900);
+      margin: 0 0 8px;
+    }
+    .code .green { color: var(--green-500); }
+    .code .amber { color: var(--amber-500); }
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 36px);
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+    p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+      margin: 0 0 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      background: var(--blue-900);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(12, 68, 124, 0.30);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover {
+      background: var(--amber-700);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(181, 117, 26, 0.30);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="code">4<span class="green">0</span><span class="amber">4</span></p>
+    <h1>This page does not exist.</h1>
+    <p>The token you generated is not in the vocabulary. Try the homepage instead.</p>
+    <a class="btn" href="/">Back to home &rarr;</a>
+  </main>
+</body>
+</html>

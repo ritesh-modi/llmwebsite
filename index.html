@@ -1,46 +1,251 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0C447C">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="light">
 
-  <title>Inside Large Language Models &middot; thefirstbookonllm.com</title>
-  <meta name="description" content="The first-principles book that explains why your prompt tricks work, when they break, and how transformers actually run. Two volumes. Eighteen chapters. Written for engineers who already shipped with the API.">
+  <title>Inside Large Language Models | The First Book on LLMs</title>
+  <meta name="description" content="Two volumes by Ritesh Modi. The first-principles book on LLMs: attention, transformers, fine-tuning, LoRA, and inference for engineers shipping with the API.">
+
+  <meta name="author" content="Ritesh Modi">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="author" href="https://www.riteshmodi.com">
 
   <link rel="canonical" href="https://thefirstbookonllm.com/">
 
   <meta property="og:type" content="book">
-  <meta property="og:title" content="Inside Large Language Models">
+  <meta property="og:site_name" content="Inside Large Language Models">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Inside Large Language Models | The First Book on LLMs">
   <meta property="og:description" content="Why does pasting the same prompt twice work? Why does GPT-4 fail on 'how many Rs in strawberry'? Why does LoRA fine-tune a 70B model on one GPU? Two volumes that turn API users into engineers who understand the system underneath.">
   <meta property="og:url" content="https://thefirstbookonllm.com/">
   <meta property="og:image" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
+  <meta property="og:image:secure_url" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="2400">
   <meta property="og:image:height" content="3000">
+  <meta property="og:image:alt" content="Inside Large Language Models, Volume I cover">
+  <meta property="book:author" content="https://www.riteshmodi.com">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Inside Large Language Models">
-  <meta name="twitter:description" content="The first book that explains LLM internals through the empirical tricks engineers already discovered.">
+  <meta name="twitter:title" content="Inside Large Language Models | The First Book on LLMs">
+  <meta name="twitter:description" content="The first book that explains LLM internals through the empirical tricks engineers already discovered. Two volumes by Ritesh Modi.">
   <meta name="twitter:image" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
+  <meta name="twitter:image:alt" content="Inside Large Language Models, Volume I cover">
+  <meta name="twitter:creator" content="@automationnext">
+  <meta name="twitter:site" content="@automationnext">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://leanpub.com">
+  <link rel="dns-prefetch" href="https://www.amazon.com">
+  <link rel="preload" as="image" href="Inside-LLMs-Vol1-Cover-2400x3000.jpg" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C447C'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='900' font-size='36' fill='%23EF9F27'%3ELLM%3C/text%3E%3C/svg%3E">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://thefirstbookonllm.com/">
+  <link rel="alternate" hreflang="x-default" href="https://thefirstbookonllm.com/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://thefirstbookonllm.com/#website",
+        "url": "https://thefirstbookonllm.com/",
+        "name": "Inside Large Language Models",
+        "description": "The first-principles book on LLMs by Ritesh Modi.",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://thefirstbookonllm.com/#author" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://thefirstbookonllm.com/#author",
+        "name": "Ritesh Modi",
+        "url": "https://www.riteshmodi.com",
+        "sameAs": ["https://www.riteshmodi.com"],
+        "jobTitle": "Head of AI",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "MarketOnce"
+        },
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "Microsoft"
+        },
+        "image": "https://thefirstbookonllm.com/ritesh.jpeg",
+        "description": "Head of AI at MarketOnce. Former Principal Forward Deployed Engineer at Microsoft. Author of Inside Large Language Models, Volumes I and II."
+      },
+      {
+        "@type": "Book",
+        "@id": "https://thefirstbookonllm.com/#vol1",
+        "name": "Inside Large Language Models, Volume I: Foundations and the Complete Transformer",
+        "alternateName": "Inside LLMs Vol I",
+        "author": { "@id": "https://thefirstbookonllm.com/#author" },
+        "image": "https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg",
+        "url": "https://thefirstbookonllm.com/#volumes",
+        "inLanguage": "en",
+        "bookFormat": "https://schema.org/EBook",
+        "numberOfPages": 400,
+        "description": "First-principles walkthrough of LLM foundations and the complete transformer. Tokenization, embeddings, positional encoding, single-head and multi-head attention, residuals, layer norm, the feed-forward network, the LM head, and a complete GPT built from scratch in PyTorch.",
+        "about": ["Large Language Models", "Transformers", "Attention Mechanism", "Tokenization", "Embeddings", "PyTorch", "GPT", "Deep Learning"],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Software engineers shipping with LLM APIs"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://leanpub.com/insidellmvol1",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "seller": { "@type": "Organization", "name": "Leanpub" }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GYKKV6FK",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "seller": { "@type": "Organization", "name": "Amazon" }
+          }
+        ]
+      },
+      {
+        "@type": "Book",
+        "@id": "https://thefirstbookonllm.com/#vol2",
+        "name": "Inside Large Language Models, Volume II: Inference, Optimization and Fine-Tuning",
+        "alternateName": "Inside LLMs Vol II",
+        "author": { "@id": "https://thefirstbookonllm.com/#author" },
+        "image": "https://thefirstbookonllm.com/Inside-LLMs-Vol2-Cover-2400x3000.jpg",
+        "url": "https://thefirstbookonllm.com/#volumes",
+        "inLanguage": "en",
+        "bookFormat": "https://schema.org/EBook",
+        "numberOfPages": 400,
+        "description": "Production LLMs end to end. Inference internals, KV cache, prefix caching, quantization, batching, RLHF, instruction tuning, full fine-tuning, LoRA, QLoRA, and four applied projects: contract classification, legal-document QLoRA, text-to-SQL, and function calling.",
+        "about": ["LLM Fine-Tuning", "LoRA", "QLoRA", "RLHF", "Instruction Tuning", "Inference Optimization", "KV Cache", "Quantization", "Function Calling"],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Engineers shipping fine-tuned LLMs into production"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GXGC8YDK/",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "USD",
+          "seller": { "@type": "Organization", "name": "Amazon" }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://thefirstbookonllm.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between Volume I and Volume II?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Volume I covers foundations and the complete transformer architecture in nine chapters: tokenization, embeddings, positional encoding, attention, residuals, layer norm, the feed-forward network, and a complete GPT built from scratch in PyTorch. Volume II covers what happens after a model is trained: inference internals, KV cache, quantization, batching, RLHF, instruction tuning, LoRA, QLoRA, and four end-to-end applied projects on real domains."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which volume should I read first?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you want to understand how transformers work and read research papers without bouncing, start with Volume I. If you need to ship a fine-tuned LLM into production for a specific domain like legal, SQL, function-calling, or classification, Volume II is the faster path to the answers you need."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What background do I need before reading this book?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Comfort with Python (loops, classes, NumPy basics) and a working understanding of neural networks at a high level. You do not need a graduate degree, you do not need to have read the original transformer paper, and you do not need linear algebra beyond matrix multiplication and dot products. Every concept is built up from intuition first, math second."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What programming language and framework is used?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PyTorch throughout. Volume I builds a complete GPT from scratch in PyTorch in Chapter 9. Volume II uses PyTorch with Hugging Face Transformers and PEFT for the four applied fine-tuning projects."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the book cover the latest models like GPT-4, Claude, and Llama?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The mechanisms taught in the book are what every modern LLM is built on: decoder architecture, tokenization, attention, KV cache, RLHF, LoRA. Once you understand these, every commercial model you use, including GPT-4, Claude, Gemini, and the Llama family, becomes legible. The book teaches the substrate, not the API surface."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this book different from other LLM books that build a GPT from scratch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most build-from-scratch books stop at training a small GPT. Inside Large Language Models keeps going. After Volume I builds and trains the model, Volume II walks through production inference, optimization, RLHF, and four applied fine-tuning projects on real domains: contract classification, legal QLoRA, text-to-SQL, and function calling. You finish with a model in production, not just a model on disk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I be able to build a GPT from scratch after reading?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chapter 9 of Volume I is exactly this exercise. By the end you will have written every component of a GPT in PyTorch and trained it on real text. Every line is annotated. Every tensor shape is shown."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I buy the book?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Volume I is available on Leanpub and Amazon. Volume II is available on Amazon. Direct links are at the top and bottom of this page."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-<header class="topbar">
+<a class="skip-link" href="#top">Skip to content</a>
+
+<header class="topbar" role="banner">
   <div class="container topbar-row">
-    <a class="brand" href="#top"><span class="brand-mark">L<span>L</span>M</span><span class="brand-text">thefirstbookonllm.com</span></a>
-    <nav class="topnav">
+    <a class="brand" href="#top" aria-label="Inside Large Language Models, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <rect width="64" height="64" rx="12" fill="#0C447C"/>
+          <text x="32" y="44" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="26" letter-spacing="0.5">
+            <tspan fill="#EF9F27">L</tspan><tspan fill="#1D9E75">L</tspan><tspan fill="#EF9F27">M</tspan>
+          </text>
+        </svg>
+      </span>
+      <span class="brand-text">thefirstbookonllm.com</span>
+    </a>
+    <nav class="topnav" aria-label="Primary">
       <a href="#why">Why this book</a>
       <a href="#volumes">The two volumes</a>
       <a href="#peek">Inside</a>
       <a href="#author">Author</a>
+      <a href="#faq">FAQ</a>
       <a href="#buy" class="nav-cta">Buy</a>
     </nav>
   </div>
@@ -330,6 +535,58 @@
         <p class="author-cta">
           <a class="btn btn-ghost" href="https://www.riteshmodi.com" target="_blank" rel="noopener">riteshmodi.com &rarr;</a>
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="section-title">
+        <span>Frequently asked questions</span><br>
+        <span class="muted">Everything readers want to know before they click buy.</span>
+      </h2>
+      <div class="faq-list">
+
+        <details class="faq-item" open>
+          <summary><span class="faq-q">What is the difference between Volume I and Volume II?</span></summary>
+          <p>Volume I covers foundations and the complete transformer architecture in nine chapters: tokenization, embeddings, positional encoding, attention, residuals, layer norm, the feed-forward network, and a complete GPT built from scratch in PyTorch. Volume II covers what happens after a model is trained: inference internals, KV cache, quantization, batching, RLHF, instruction tuning, LoRA, QLoRA, and four end-to-end applied projects on real domains.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">Which volume should I read first?</span></summary>
+          <p>If you want to understand how transformers work and read research papers without bouncing, start with Volume I. If you need to ship a fine-tuned LLM into production for a specific domain like legal, SQL, function-calling, or classification, Volume II is the faster path to the answers you need.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">What background do I need before reading this book?</span></summary>
+          <p>Comfort with Python (loops, classes, NumPy basics) and a working understanding of neural networks at a high level. You do not need a graduate degree, you do not need to have read the original transformer paper, and you do not need linear algebra beyond matrix multiplication and dot products. Every concept is built up from intuition first, math second.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">What programming language and framework is used?</span></summary>
+          <p>PyTorch throughout. Volume I builds a complete GPT from scratch in PyTorch in Chapter 9. Volume II uses PyTorch with Hugging Face Transformers and PEFT for the four applied fine-tuning projects.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">Does the book cover the latest models like GPT-4, Claude, and Llama?</span></summary>
+          <p>The mechanisms taught in the book are what every modern LLM is built on: decoder architecture, tokenization, attention, KV cache, RLHF, LoRA. Once you understand these, every commercial model you use, including GPT-4, Claude, Gemini, and the Llama family, becomes legible. The book teaches the substrate, not the API surface.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">How is this book different from other LLM books that build a GPT from scratch?</span></summary>
+          <p>Most build-from-scratch books stop at training a small GPT. <em>Inside Large Language Models</em> keeps going. After Volume I builds and trains the model, Volume II walks through production inference, optimization, RLHF, and four applied fine-tuning projects on real domains: contract classification, legal QLoRA, text-to-SQL, and function calling. You finish with a model in production, not just a model on disk.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">Will I be able to build a GPT from scratch after reading?</span></summary>
+          <p>Chapter 9 of Volume I is exactly this exercise. By the end you will have written every component of a GPT in PyTorch and trained it on real text. Every line is annotated. Every tensor shape is shown.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="faq-q">Where can I buy the book?</span></summary>
+          <p>Volume I is available on <a href="https://leanpub.com/insidellmvol1" target="_blank" rel="noopener">Leanpub</a> and <a href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GYKKV6FK" target="_blank" rel="noopener">Amazon</a>. Volume II is available on <a href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GXGC8YDK/" target="_blank" rel="noopener">Amazon</a>. Direct links are at the top and bottom of this page.</p>
+        </details>
+
       </div>
     </div>
   </section>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440">
+  <rect width="800" height="440" fill="white"/>
+
+  <text x="400" y="28" text-anchor="middle" font-size="19" font-weight="700"
+        fill="#111" font-family="Arial">Why Plain SGD Fails and AdamW Succeeds</text>
+
+  <!-- SGD Problem -->
+  <rect x="15" y="46" width="370" height="170" rx="8" fill="#FFF0F0" stroke="#A22020" stroke-width="1.5"/>
+  <text x="200" y="68" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#A22020" font-family="Arial">Plain SGD: Two Problems</text>
+
+  <text x="30" y="92" font-size="13" font-weight="700" fill="#A22020"
+        font-family="Arial">1. Noisy Gradients</text>
+  <text x="30" y="110" font-size="12" fill="#A22020"
+        font-family="Arial">Each batch gives a different direction.</text>
+  <text x="30" y="128" font-size="12" fill="#A22020"
+        font-family="Arial">SGD zigzags instead of going straight.</text>
+
+  <text x="30" y="154" font-size="13" font-weight="700" fill="#A22020"
+        font-family="Arial">2. One LR for All Parameters</text>
+  <text x="30" y="172" font-size="12" fill="#A22020"
+        font-family="Arial">Some params need big steps, others small.</text>
+  <text x="30" y="190" font-size="12" fill="#A22020"
+        font-family="Arial">One learning rate cannot fit both.</text>
+
+  <!-- AdamW Solution -->
+  <rect x="405" y="46" width="380" height="170" rx="8" fill="#D4EFE4" stroke="#0F6E56" stroke-width="1.5"/>
+  <text x="595" y="68" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#04342C" font-family="Arial">AdamW: Three Fixes</text>
+
+  <text x="420" y="94" font-size="13" font-weight="700" fill="#04342C"
+        font-family="Arial">1. Momentum (smooth the noise)</text>
+  <text x="420" y="112" font-size="12" fill="#04342C"
+        font-family="Arial">Running average of recent gradients.</text>
+
+  <text x="420" y="138" font-size="13" font-weight="700" fill="#04342C"
+        font-family="Arial">2. Per-Parameter Learning Rate</text>
+  <text x="420" y="156" font-size="12" fill="#04342C"
+        font-family="Arial">Loud params: small steps. Quiet: big steps.</text>
+
+  <text x="420" y="182" font-size="13" font-weight="700" fill="#04342C"
+        font-family="Arial">3. Weight Decay (regularization)</text>
+
+  <!-- AdamW formula breakdown -->
+  <rect x="15" y="225" width="770" height="195" rx="8" fill="#F5F4F0" stroke="#D4D4D4"/>
+  <text x="400" y="245" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#333" font-family="Arial">AdamW Update Rule</text>
+
+  <text x="30" y="272" font-size="14" font-weight="700" fill="#0C2E6B"
+        font-family="Courier New">m = 0.9*m + 0.1*grad</text>
+  <text x="380" y="272" font-size="13" fill="#444444"
+        font-family="Arial">Momentum: smoothed direction</text>
+
+  <text x="30" y="298" font-size="14" font-weight="700" fill="#0C2E6B"
+        font-family="Courier New">v = 0.95*v + 0.05*grad^2</text>
+  <text x="380" y="298" font-size="13" fill="#444444"
+        font-family="Arial">Velocity: how noisy is this param?</text>
+
+  <text x="30" y="324" font-size="14" font-weight="700" fill="#633806"
+        font-family="Courier New">step = lr * m / sqrt(v)</text>
+  <text x="380" y="324" font-size="13" fill="#444444"
+        font-family="Arial">Adaptive step: direction / volatility</text>
+
+  <text x="30" y="352" font-size="14" font-weight="700" fill="#04342C"
+        font-family="Courier New">w = w - step - lr*0.1*w</text>
+  <text x="380" y="352" font-size="13" fill="#A22020" font-weight="600"
+        font-family="Arial">"W" in AdamW = decoupled weight decay</text>
+
+  <text x="400" y="382" text-anchor="middle" font-size="12" fill="#444444"
+        font-family="Arial">Used by GPT-2/3/4, LLaMA, Mistral, Claude, Gemini, PaLM — every major LLM.</text>
+</svg>

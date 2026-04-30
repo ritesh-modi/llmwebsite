@@ -11,6 +11,7 @@ website/
 ├── staticwebapp.config.json                Azure Static Web Apps config (routing, headers, caching)
 ├── Inside-LLMs-Vol1-Cover-2400x3000.jpg    Volume I cover
 ├── Inside-LLMs-Vol2-Cover-2400x3000.jpg    Volume II cover
+├── ritesh.jpeg                             author headshot (480x480)
 ├── diagrams/                               seven SVGs lifted from the book chapters
 │   ├── bpe.svg              ch3  Byte-Pair Encoding
 │   ├── attention.svg        ch5  Single-head attention
@@ -77,6 +78,7 @@ If your registrar does not support `ALIAS`/`ANAME` records on the apex, point `w
 - Visual changes → edit `styles.css`.
 - Replacing or adding diagrams → drop new SVGs into `diagrams/` and reference them from the `<section id="peek">` block. Source SVGs live in the parent repo at `../svg/`.
 - New pricing or buy links → edit the two `volume-buy` blocks and the `buy-grid` near the bottom of `index.html`.
+- Author bio → edit the `<section id="author">` block in `index.html`. Headshot is `ritesh.jpeg`. Add or change role pills inside `.author-roles`. The two `<p class="author-text">` paragraphs are conservative on purpose. Replace with the full bio (publications, talks, awards, etc.) once it is finalized.
 
 After committing changes, the GitHub Actions workflow Azure created on first deploy will redeploy automatically.
 

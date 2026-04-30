@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="800" height="620">
+  <defs>
+    <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
+            stroke-width="1.5" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" font-size="16" font-weight="700"
+        fill="#111" font-family="Arial">The Complete GPT Architecture: Tokens to Predictions</text>
+
+  <!-- Top flow: 2 rows for clarity -->
+  <!-- Row 1: Token IDs -> Token Emb + Pos -->
+  <rect x="20" y="55" width="140" height="50" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="90" y="75" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#0C2E6B" font-family="Arial">Token IDs</text>
+  <text x="90" y="93" text-anchor="middle" font-size="12" fill="#0C2E6B"
+        font-family="Courier New">[B, T]</text>
+
+  <line x1="160" y1="80" x2="197" y2="80" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+  <rect x="200" y="55" width="180" height="50" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="290" y="75" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#0C2E6B" font-family="Arial">Token Emb + Pos Enc</text>
+  <text x="290" y="93" text-anchor="middle" font-size="12" fill="#0C2E6B"
+        font-family="Courier New">[B, T, d_model]</text>
+
+  <line x1="380" y1="80" x2="417" y2="80" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+  <rect x="420" y="48" width="190" height="64" rx="8" fill="#EEEDFE" stroke="#7F77DD" stroke-width="2.5"/>
+  <text x="515" y="72" text-anchor="middle" font-size="13" font-weight="700"
+        fill="#3C3489" font-family="Arial">N Transformer Blocks</text>
+  <text x="515" y="95" text-anchor="middle" font-size="12" fill="#3C3489"
+        font-family="Arial">(MHA + FFN + LN) x N</text>
+
+  <line x1="610" y1="80" x2="647" y2="80" stroke="#7F77DD" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+  <rect x="650" y="58" width="130" height="44" rx="6" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1.5"/>
+  <text x="715" y="78" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#633806" font-family="Arial">Final LN</text>
+  <text x="715" y="93" text-anchor="middle" font-size="12" fill="#633806"
+        font-family="Courier New">[B,T,d]</text>
+
+  <!-- Arrow down from Final LN to LM Head -->
+  <line x1="715" y1="112" x2="715" y2="143" stroke="#EF9F27" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+  <rect x="650" y="146" width="130" height="44" rx="6" fill="#D4EFE4" stroke="#0F6E56" stroke-width="2"/>
+  <text x="715" y="166" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#04342C" font-family="Arial">LM Head</text>
+  <text x="715" y="182" text-anchor="middle" font-size="12" fill="#04342C"
+        font-family="Courier New">[B,T,V]</text>
+
+  <!-- Arrow down to Logits -->
+  <line x1="715" y1="190" x2="715" y2="220" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+  <rect x="660" y="222" width="110" height="36" rx="6" fill="#D4EFE4" stroke="#0F6E56" stroke-width="2"/>
+  <text x="715" y="245" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#04342C" font-family="Courier New">Logits</text>
+
+  <!-- Weight tying annotation (path from LM Head over to Token Emb) -->
+  <path d="M650 168 L280 168 L280 108" fill="none" stroke="#0F6E56"
+        stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="40" y="265" text-anchor="start" font-size="12" font-weight="600"
+        fill="#04342C" font-family="Arial">Weight Tying: LM Head shares weights with Token Embedding</text>
+
+  <!-- Inside one block detail -->
+  <rect x="40" y="275" width="720" height="130" rx="8" fill="#F5F4F0" stroke="#D4D4D4"/>
+  <text x="400" y="299" text-anchor="middle" font-size="13" font-weight="700"
+        fill="#3C3489" font-family="Arial">Inside Each Transformer Block (repeated N times):</text>
+
+  <!-- Sub-layer 1 -->
+  <rect x="55" y="317" width="110" height="34" rx="4" fill="#FAEEDA" stroke="#EF9F27"/>
+  <text x="110" y="339" text-anchor="middle" font-size="12" font-weight="600"
+        fill="#633806" font-family="Arial">1. LayerNorm</text>
+
+  <line x1="165" y1="334" x2="197" y2="334" stroke="#444444" stroke-width="1.2" marker-end="url(#arr3)"/>
+
+  <rect x="200" y="317" width="140" height="34" rx="4" fill="#EEEDFE" stroke="#7F77DD"/>
+  <text x="270" y="339" text-anchor="middle" font-size="12" font-weight="600"
+        fill="#3C3489" font-family="Arial">2. MHA + Residual</text>
+
+  <line x1="340" y1="334" x2="372" y2="334" stroke="#444444" stroke-width="1.2" marker-end="url(#arr3)"/>
+
+  <rect x="375" y="317" width="110" height="34" rx="4" fill="#FAEEDA" stroke="#EF9F27"/>
+  <text x="430" y="339" text-anchor="middle" font-size="12" font-weight="600"
+        fill="#633806" font-family="Arial">3. LayerNorm</text>
+
+  <line x1="485" y1="334" x2="517" y2="334" stroke="#444444" stroke-width="1.2" marker-end="url(#arr3)"/>
+
+  <rect x="520" y="317" width="130" height="34" rx="4" fill="#FAEEDA" stroke="#EF9F27" stroke-width="2"/>
+  <text x="585" y="339" text-anchor="middle" font-size="12" font-weight="600"
+        fill="#633806" font-family="Arial">4. FFN + Residual</text>
+
+  <line x1="650" y1="334" x2="682" y2="334" stroke="#444444" stroke-width="1.2" marker-end="url(#arr3)"/>
+
+  <rect x="685" y="317" width="65" height="34" rx="4" fill="#D4EFE4" stroke="#0F6E56"/>
+  <text x="717" y="339" text-anchor="middle" font-size="12" font-weight="600"
+        fill="#04342C" font-family="Arial">Out</text>
+
+  <text x="400" y="378" text-anchor="middle" font-size="12" fill="#444444"
+        font-family="Arial">x = x + MHA(LN(x))  then  x = x + FFN(LN(x))  -- the Pre-LN pattern from Chapter 6</text>
+
+  <!-- Parameter distribution -->
+  <rect x="40" y="420" width="720" height="190" rx="8" fill="#F5F4F0" stroke="#D4D4D4"/>
+  <text x="400" y="445" text-anchor="middle" font-size="13" font-weight="700"
+        fill="#111" font-family="Arial">Where Do the Parameters Live? (GPT-2: 124M total)</text>
+
+  <!-- FFN bar -->
+  <rect x="60" y="462" width="440" height="28" rx="4" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1.5"/>
+  <text x="280" y="481" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#633806" font-family="Arial">Feed-Forward Networks: 56.6M (46%)</text>
+
+  <!-- Embedding bar -->
+  <rect x="60" y="495" width="260" height="28" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="190" y="514" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#0C2E6B" font-family="Arial">Token Embedding: 38.6M (31%)</text>
+
+  <!-- MHA bar -->
+  <rect x="60" y="528" width="190" height="28" rx="4" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1.5"/>
+  <text x="155" y="547" text-anchor="middle" font-size="12" font-weight="700"
+        fill="#3C3489" font-family="Arial">MHA: 28.3M (23%)</text>
+
+  <!-- LN + Pos -->
+  <rect x="60" y="561" width="30" height="20" rx="4" fill="#E8E6DF" stroke="#5F5E5A" stroke-width="1"/>
+  <text x="150" y="577" text-anchor="start" font-size="12" fill="#444444"
+        font-family="Arial">LayerNorm + Positional: &lt;1M (tiny)</text>
+
+  <!-- GPT-3 annotation (moved left for clearance) -->
+  <text x="520" y="481" text-anchor="start" font-size="12" fill="#633806"
+        font-family="Arial">GPT-3: 115B in FFN (66%)</text>
+  <text x="520" y="501" text-anchor="start" font-size="12" fill="#0C2E6B"
+        font-family="Arial">GPT-3: 617M in embeddings</text>
+  <text x="520" y="521" text-anchor="start" font-size="12" fill="#3C3489"
+        font-family="Arial">GPT-3: 58B in MHA (33%)</text>
+  <text x="520" y="541" text-anchor="start" font-size="12" fill="#444444"
+        font-family="Arial">GPT-3: 4.7M in LayerNorm</text>
+  <text x="520" y="565" text-anchor="start" font-size="12" font-weight="700"
+        fill="#633806" font-family="Arial">FFN dominates at scale.</text>
+</svg>

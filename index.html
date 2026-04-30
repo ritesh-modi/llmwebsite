@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0C447C">
+
+  <title>Inside Large Language Models &middot; thefirstbookonllm.com</title>
+  <meta name="description" content="The first-principles book that explains why your prompt tricks work, when they break, and how transformers actually run. Two volumes. Eighteen chapters. Written for engineers who already shipped with the API.">
+
+  <link rel="canonical" href="https://thefirstbookonllm.com/">
+
+  <meta property="og:type" content="book">
+  <meta property="og:title" content="Inside Large Language Models">
+  <meta property="og:description" content="Why does pasting the same prompt twice work? Why does GPT-4 fail on 'how many Rs in strawberry'? Why does LoRA fine-tune a 70B model on one GPU? Two volumes that turn API users into engineers who understand the system underneath.">
+  <meta property="og:url" content="https://thefirstbookonllm.com/">
+  <meta property="og:image" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="3000">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inside Large Language Models">
+  <meta name="twitter:description" content="The first book that explains LLM internals through the empirical tricks engineers already discovered.">
+  <meta name="twitter:image" content="https://thefirstbookonllm.com/Inside-LLMs-Vol1-Cover-2400x3000.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C447C'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='900' font-size='36' fill='%23EF9F27'%3ELLM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-row">
+    <a class="brand" href="#top"><span class="brand-mark">L<span>L</span>M</span><span class="brand-text">thefirstbookonllm.com</span></a>
+    <nav class="topnav">
+      <a href="#why">Why this book</a>
+      <a href="#volumes">The two volumes</a>
+      <a href="#peek">Inside</a>
+      <a href="#buy" class="nav-cta">Buy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">A first-principles book on LLMs <span class="dot"></span> Two volumes available now</p>
+        <h1 class="display">
+          You can call the API.<br>
+          <span class="hl-amber">But could you explain</span><br>
+          <span class="hl-blue">what just happened?</span>
+        </h1>
+        <ul class="hero-questions">
+          <li>Why does pasting the same prompt twice often give a better answer?</li>
+          <li>Why does GPT-4 fail on "how many Rs in strawberry" but work if you spell it out?</li>
+          <li>Why does LoRA fine-tune a 70B model on one consumer GPU?</li>
+        </ul>
+        <p class="hero-tag">Most engineers can call an LLM API. Almost none can explain what happens after the request leaves their machine. They patch around strange behavior with prompt tricks they found by accident. Then ship those tricks into production with nothing to fall back on when something breaks.</p>
+        <p class="hero-tag emph">This book is the answer.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#buy">Get the books</a>
+          <a class="btn btn-ghost" href="#peek">See inside &rarr;</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img class="cover cover-vol1"
+             src="Inside-LLMs-Vol1-Cover-2400x3000.jpg"
+             alt="Inside Large Language Models, Volume I: Foundations and the Complete Transformer"
+             width="2400" height="3000" fetchpriority="high">
+        <img class="cover cover-vol2"
+             src="Inside-LLMs-Vol2-Cover-2400x3000.jpg"
+             alt="Inside Large Language Models, Volume II: Inference, Optimization, and Fine-Tuning"
+             width="2400" height="3000" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why">
+    <div class="container">
+      <h2 class="section-title">
+        <span>Four things</span> you have already noticed.<br>
+        <span class="muted">Four mechanisms most engineers cannot explain.</span>
+      </h2>
+
+      <div class="why-grid">
+
+        <article class="card card-amber">
+          <div class="card-tag">You noticed</div>
+          <h3>Pasting the prompt twice gets you a better answer.</h3>
+          <div class="card-tag mech">The mechanism</div>
+          <p>Decoders generate one token at a time, and every new token correlates with everything before it through attention. Repeat the instruction and the model sees it once near the start, where attention weights run hot, and once at the end, where recency dominates. The signal stacks. Position is not metadata. Position is the math.</p>
+          <div class="card-foot">Volume I &middot; Chapters 5, 6, 9</div>
+        </article>
+
+        <article class="card card-blue">
+          <div class="card-tag">You noticed</div>
+          <h3>"How many Rs in strawberry" fails. Spelling it out works.</h3>
+          <div class="card-tag mech">The mechanism</div>
+          <p>The model never sees individual letters. Byte-Pair Encoding compresses the word into about two integer token IDs. Counting characters inside a single learned 4096-dimensional vector is asking the model to do something it cannot do. Spell it out and you change the tokenization. Now the letters are separately addressable.</p>
+          <div class="card-foot">Volume I &middot; Chapters 3, 4</div>
+        </article>
+
+        <article class="card card-green">
+          <div class="card-tag">You noticed</div>
+          <h3>Temperature, top-k, top-p change the output. But how?</h3>
+          <div class="card-tag mech">The mechanism</div>
+          <p>Temperature divides the model's raw logits before the softmax. Set it to 2 and the distribution flattens. Set it to 0.5 and it sharpens. Top-k truncates to the k highest probabilities, a hard cliff. Top-p adds candidates until cumulative probability reaches p, a soft cutoff that adapts to the distribution. Stop guessing. Start predicting which one will fail when your prompt shifts.</p>
+          <div class="card-foot">Volume II &middot; Chapter 10</div>
+        </article>
+
+        <article class="card card-purple">
+          <div class="card-tag">You noticed</div>
+          <h3>LoRA fine-tunes a 70B model on one GPU. How is that even possible?</h3>
+          <div class="card-tag mech">The mechanism</div>
+          <p>Full fine-tuning updates every parameter. Billions of degrees of freedom for a task that needs a few thousand. The actual weight update lives in a low-rank subspace. LoRA decomposes it into two small matrices with about 0.1 percent of the parameters. Optimizer state, gradients, and activation memory all shrink by that ratio. Not just the parameter count. The whole memory budget collapses.</p>
+          <div class="card-foot">Volume II &middot; Chapters 12, 14&ndash;17</div>
+        </article>
+
+      </div>
+
+      <p class="why-coda">Knowing the trick is folklore. Knowing the mechanism is the difference between shipping and explaining. Between a hack and a system. Between building once and building reliably.</p>
+    </div>
+  </section>
+
+  <section id="volumes" class="volumes">
+    <div class="container">
+      <h2 class="section-title">
+        <span>Two volumes.</span> Eighteen chapters.<br>
+        <span class="muted">Read them in order, or buy the one you need first.</span>
+      </h2>
+
+      <div class="volume-grid">
+
+        <article class="volume volume-vol1">
+          <div class="volume-head">
+            <img class="cover-mini"
+                 src="Inside-LLMs-Vol1-Cover-2400x3000.jpg"
+                 alt="Volume I cover"
+                 width="2400" height="3000" loading="lazy">
+            <div class="volume-meta">
+              <h3>Volume I</h3>
+              <p class="volume-sub">Foundations &amp; the Complete Transformer</p>
+              <p class="volume-chapters">Chapters 1 to 9</p>
+            </div>
+          </div>
+          <p class="volume-pitch">For the engineer who has shipped with the API and now wants to read a transformer paper without bouncing off Section 3. Builds the model from scratch in PyTorch.</p>
+          <ul class="volume-topics">
+            <li>Tokenization, embeddings, positional encoding</li>
+            <li>Single-head and multi-head attention</li>
+            <li>Residuals, layer norm, the feed-forward network, the LM head</li>
+            <li>Building and training a complete GPT from scratch (Chapter 9)</li>
+          </ul>
+          <div class="volume-buy">
+            <a class="btn btn-primary" href="https://leanpub.com/insidellmvol1" target="_blank" rel="noopener">Buy on Leanpub</a>
+            <a class="btn btn-secondary" href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GYKKV6FK" target="_blank" rel="noopener">Buy on Amazon</a>
+          </div>
+        </article>
+
+        <article class="volume volume-vol2">
+          <div class="volume-head">
+            <img class="cover-mini"
+                 src="Inside-LLMs-Vol2-Cover-2400x3000.jpg"
+                 alt="Volume II cover"
+                 width="2400" height="3000" loading="lazy">
+            <div class="volume-meta">
+              <h3>Volume II</h3>
+              <p class="volume-sub">Inference, Optimization &amp; Fine-Tuning</p>
+              <p class="volume-chapters">Chapters 10 to 18</p>
+            </div>
+          </div>
+          <p class="volume-pitch">For the engineer who has been told to fine-tune for the company's actual domain and is six tabs deep in Hugging Face docs without a clear path. Four end-to-end applied projects.</p>
+          <ul class="volume-topics">
+            <li>Inference internals, KV cache, prefix caching, quantization, batching</li>
+            <li>RLHF, instruction tuning, full fine-tuning vs LoRA vs QLoRA</li>
+            <li>Four applied projects: classification, legal QLoRA, text-to-SQL, function calling</li>
+            <li>Putting it all into production</li>
+          </ul>
+          <div class="volume-buy">
+            <a class="btn btn-primary" href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GXGC8YDK/" target="_blank" rel="noopener">Buy on Amazon</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="peek" class="peek">
+    <div class="container">
+      <h2 class="section-title">
+        <span>A peek inside.</span><br>
+        <span class="muted">Seven diagrams from the book. This is not even one percent of what is in there.</span>
+      </h2>
+
+      <div class="peek-grid">
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/bpe.svg" alt="Byte-Pair Encoding tokenization process"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 3</span>
+            <strong>Byte-Pair Encoding, step by step.</strong>
+            How "strawberry" becomes two integer IDs and why that explains every character-counting failure you have ever seen.
+          </figcaption>
+        </figure>
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/attention.svg" alt="Single-head attention overview"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 5</span>
+            <strong>Single-head attention, fully drawn.</strong>
+            Queries, keys, values, dot products, softmax. Every arrow color-coded. Every dimension labeled.
+          </figcaption>
+        </figure>
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/gpt.svg" alt="Complete GPT architecture"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 7</span>
+            <strong>The complete GPT architecture.</strong>
+            Embeddings, transformer blocks, the LM head, the loss. The full system on one page, ready to be built in code.
+          </figcaption>
+        </figure>
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/autoregressive.svg" alt="Autoregressive generation flow"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 9</span>
+            <strong>Autoregressive generation, one token at a time.</strong>
+            The mechanism that makes prompt-doubling work. The mechanism that makes streaming feel alive.
+          </figcaption>
+        </figure>
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/kvcache.svg" alt="KV cache growth"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 10</span>
+            <strong>KV cache growth at inference time.</strong>
+            Why putting the variable part of your prompt at the end can cut your bill by 10x. Production-grade insight in one diagram.
+          </figcaption>
+        </figure>
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/lora.svg" alt="LoRA architecture"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 12</span>
+            <strong>LoRA in one picture.</strong>
+            Frozen base weights. Two small trainable matrices. The geometric reason why 0.1 percent of parameters is enough.
+          </figcaption>
+        </figure>
+
+        <figure class="peek-item">
+          <div class="peek-svg"><img src="diagrams/qlora.svg" alt="QLoRA memory budget"></div>
+          <figcaption>
+            <span class="peek-chapter">Chapter 12</span>
+            <strong>QLoRA memory budget, every byte accounted for.</strong>
+            Where the 100x memory reduction comes from, with exact numbers for a 70B model on a single consumer GPU.
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <div class="peek-coda">
+        <p><strong>Seven diagrams. The book has hundreds.</strong></p>
+        <p>Each transformation, each operation, each decoder pass is drawn out. Color-coded inputs, computed values, results, and aggregations. Step cards that walk you through the math one tensor at a time. Code with line-by-line annotations. This is not a book you skim. It is a book you build along with.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="outcomes">
+    <div class="container">
+      <h2 class="section-title">After both volumes you will be able to&hellip;</h2>
+      <div class="outcome-grid">
+        <div class="outcome">
+          <span class="outcome-num">01</span>
+          <p>Read the original transformer paper end to end and recognize every component on the page.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">02</span>
+          <p>Explain attention, residuals, and layer norm without reaching for an analogy you do not trust.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">03</span>
+          <p>Build and train a complete GPT from scratch in PyTorch.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">04</span>
+          <p>Pick a fine-tuning approach (full FT vs LoRA vs QLoRA vs RLHF) and defend the choice.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">05</span>
+          <p>Walk through four end-to-end fine-tuning projects on real domains.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">06</span>
+          <p>Optimize inference for production: KV cache, quantization, batching, speculative decoding.</p>
+        </div>
+        <div class="outcome">
+          <span class="outcome-num">07</span>
+          <p>Predict when a prompt trick will fail. Predict why a fine-tune will work. Stop guessing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy" class="buy">
+    <div class="container">
+      <div class="buy-card">
+        <p class="buy-kicker">Two volumes. Available now.</p>
+        <h2>Stop patching production with prompts you cannot explain.</h2>
+        <p class="buy-pitch">Every week without this knowledge is another week of folklore engineering. Another shipping decision made on guesswork. Another LLM bug nobody on your team can debug.</p>
+
+        <div class="buy-grid">
+          <div class="buy-vol">
+            <h3>Volume I</h3>
+            <p>Foundations &amp; the Complete Transformer. Chapters 1 to 9.</p>
+            <a class="btn btn-primary" href="https://leanpub.com/insidellmvol1" target="_blank" rel="noopener">Buy on Leanpub</a>
+            <a class="btn btn-secondary" href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GYKKV6FK" target="_blank" rel="noopener">Buy on Amazon</a>
+          </div>
+          <div class="buy-vol">
+            <h3>Volume II</h3>
+            <p>Inference, Optimization &amp; Fine-Tuning. Chapters 10 to 18.</p>
+            <a class="btn btn-primary" href="https://www.amazon.com/Inside-Language-Models-absolute-beginners-ebook/dp/B0GXGC8YDK/" target="_blank" rel="noopener">Buy on Amazon</a>
+          </div>
+        </div>
+
+        <p class="buy-foot">If you have ever found a prompt trick that just worked and wished you knew why, these books are written for you. Not someday. Today.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-row">
+    <p>&copy; 2026 Ritesh Modi. <em>Inside Large Language Models</em>, Volumes I and II.</p>
+    <p><a href="#top">thefirstbookonllm.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
